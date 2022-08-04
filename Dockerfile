@@ -26,7 +26,7 @@ COPY settings.gradle /home/InferRules
 COPY src /home/InferRules/src
 
 RUN ./gradlew build -x test --no-daemon
-RUN tar xvf ./build/distributions/InferRules-1.0-SNAPSHOT.tar
+RUN tar xvf ./build/distributions/InferRules-1.0-SNAPSHOT.tar -C ./build/distributions
 
 RUN sudo chown -R $(whoami) /home/InferRules
 

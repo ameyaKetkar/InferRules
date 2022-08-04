@@ -13,6 +13,7 @@ depends: [
   "ocaml"
   "dune" {>= "3.3"}
   "dream"
+  "crunch"
   "lwt"
   "ppx_yojson_conv"
   "ppx_expect" {with-test}

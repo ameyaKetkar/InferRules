@@ -16,7 +16,7 @@ import Url.Builder
 
 
 deployUrl =
-    "https://infer-code-changes.fly.dev"
+    "https://auto-comby.fly.dev"
 
 
 localUrl =
@@ -24,7 +24,7 @@ localUrl =
 
 
 apiUrl request =
-    Url.Builder.crossOrigin localUrl [ "api" ] [ Url.Builder.string "q" request ]
+    Url.Builder.crossOrigin deployUrl [ "api" ] [ Url.Builder.string "q" request ]
 
 
 type alias Model =

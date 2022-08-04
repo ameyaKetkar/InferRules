@@ -1,6 +1,6 @@
-# fly.toml file generated for infer-test on 2022-08-04T01:15:10-07:00
+# fly.toml file generated for auto-comby on 2022-08-04T14:54:31-07:00
 
-app = "infer-test"
+app = "auto-comby"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
