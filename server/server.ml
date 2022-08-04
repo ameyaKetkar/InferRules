@@ -83,4 +83,4 @@ let api_route =
         | exception _ -> Dream.respond ~code:500 "Unknown JSON conversion issue")
      | exception _ -> Dream.respond ~code:500 "Error decoding JSON input")
 
-let () = Dream.run @@ Dream.logger @@ Dream.router [ index_route; javascript_route; api_route ]
+let () = Dream.run ~interface:"0.0.0.0" @@ Dream.logger @@ Dream.router [ index_route; javascript_route; api_route ]
