@@ -17,3 +17,10 @@ Run `./Infer -b "<Before Code Snippet>" -a "<After Code Snippet>" -l "<Languag>"
   
 Example: 
 ` ./InferRules -b "count = 0\nfor e in es:\n    count += e\nprint(count)" -a "count = np.sum(es)" -l "Python"`
+
+
+#### Server dev command
+
+```
+make -C client release && make -C server run
+```
