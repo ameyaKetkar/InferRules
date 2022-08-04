@@ -1,9 +1,18 @@
 (executable
  (name server)
- (modules server)
+ (modules server public)
  (libraries dream)
  (preprocess
   (pps ppx_yojson_conv lwt_ppx)))
+
+(rule
+ (target public.ml)
+ (deps
+  (source_tree public))
+ (action
+  (with-stdout-to
+   %{null}
+   (run ocaml-crunch -m plain public -o %{target}))))
 
 (env
  (dev

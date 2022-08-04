@@ -8,3 +8,6 @@ build/
 .DS_Store
 
 server/_build
+server/public
+client/elm-stuff
+*.swp

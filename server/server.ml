@@ -10,12 +10,20 @@ let index_route =
   <script src="public/dist/main.js"></script>
 </head>
 <body>
-  <p>hi!</p>
   <div id="elm"></div>
   <script>Elm.Main.init({ node: elm, flags: { height: window.innerHeight, width: window.innerWidth } });</script>
 </body>
 </html>
 |}
+
+let javascript_route =
+  let loader _root path _request =
+    match Public.read path with
+    | None -> Dream.empty `Not_Found
+    | Some script ->
+      Dream.respond script
+  in
+  Dream.get "/public/**" (Dream.static ~loader "")
 
 let binary_path = "../build/distributions/InferRules-1.0-SNAPSHOT/bin/InferRules"
 
@@ -75,4 +83,4 @@ let api_route =
         | exception _ -> Dream.respond ~code:500 "Unknown JSON conversion issue")
      | exception _ -> Dream.respond ~code:500 "Error decoding JSON input")
 
-let () = Dream.run @@ Dream.logger @@ Dream.router [ index_route; api_route ]
+let () = Dream.run @@ Dream.logger @@ Dream.router [ index_route; javascript_route; api_route ]

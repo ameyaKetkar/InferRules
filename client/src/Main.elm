@@ -33,3 +33,31 @@ view model =
         , div [] [ text (String.fromInt model) ]
         , button [ onClick Reset ] [ text "Reset" ]
         ]
+
+
+type alias Request =
+    { leftHandSide : String
+    , rightHandSide : String
+    , language : String
+    , exclude_tokens : List String
+    }
+
+
+type alias Response =
+    { match : String
+    , replace : String
+    , matches : List Entry
+    }
+
+
+type alias Entry =
+    { symbolic : Symbolic
+    , concrete : String
+    }
+
+
+type alias Symbolic =
+    { type_ : String
+    , name : String
+    , text : String
+    }
